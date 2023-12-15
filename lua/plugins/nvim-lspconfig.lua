@@ -94,6 +94,7 @@ local config = function()
 				lua = { luacheck, stylua },
 				python = { flake8, black },
 				typescript = { eslint_d, prettier_d },
+        typescriptreact = { eslint_d, prettier_d},
 			},
 		},
 	})

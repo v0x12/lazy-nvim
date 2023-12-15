@@ -8,6 +8,7 @@ keymap.set("n", "<C-z>", "<Nop>", opts)
 -- Directory Navigation
 keymap.set("n", "<leader>m", ":NvimTreeFocus<CR>", opts)
 keymap.set("n", "<leader>f", ":NvimTreeToggle<CR>", opts)
+keymap.set("n", "<leader>mf", ":NvimTreeFindFile<CR>", opts)
 
 -- Pane Navigation
 keymap.set("n", "<C-h>", "<C-w>h", opts) -- Navigate left
