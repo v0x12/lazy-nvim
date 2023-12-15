@@ -7,10 +7,10 @@ M.on_attach = function(client, bufnr)
 	-- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
-	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
+	keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts)
 	keymap.set("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opts)
 	keymap.set("n", "gd", "<cmd>Lspsaga peek_definition <CR>", opts)
-	keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation<CR>", opts)
 	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
 	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 	keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
