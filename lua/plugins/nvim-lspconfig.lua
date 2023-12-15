@@ -59,8 +59,8 @@ local config = function()
 		capabilities = capabilities,
 		filetypes = {
 			"typescript",
-      "typescriptreact",
-      "typescript.tsx",
+			"typescriptreact",
+			"typescript.tsx",
 		},
 		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
 	})
@@ -78,8 +78,8 @@ local config = function()
 			"lua",
 			"python",
 			"typescript",
-      "typescriptreact",
-      "typescript.tsx",
+			"typescriptreact",
+			"typescript.tsx",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -94,24 +94,9 @@ local config = function()
 				lua = { luacheck, stylua },
 				python = { flake8, black },
 				typescript = { eslint_d, prettier_d },
-        typescriptreact = { eslint_d, prettier_d},
+				typescriptreact = { eslint_d, prettier_d },
 			},
 		},
-	})
-
-	-- Format on save
-	local lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
-	vim.api.nvim_create_autocmd("BufWritePost", {
-		group = lsp_fmt_group,
-		callback = function()
-			local efm = vim.lsp.get_active_clients({ name = "efm" })
-
-			if vim.tbl_isempty(efm) then
-				return
-			end
-
-			vim.lsp.buf.format({ name = "efm" })
-		end,
 	})
 end
 
