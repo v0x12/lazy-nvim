@@ -20,6 +20,7 @@ M.on_attach = function(client, bufnr)
 	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 	keymap.set("n", "<leader>lo", "<cmd>LSoutlineToggle<CR>", opts)
 
+
 	if client.name == "pyright" then
 		keymap.set("n", "<Leader>oi", "<cmd>PyrightOrganizeImports<CR>", opts)
 	end

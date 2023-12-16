@@ -65,12 +65,37 @@ local config = function()
 		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
 	})
 
+	-- rust
+	lspconfig.rust_analyzer.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		settings = {
+			["rust-analyzer"] = {
+				diagnostics = {
+					enable = true,
+				},
+				cargo = {
+					allFeatures = true,
+				},
+			},
+		},
+		root_dir = lspconfig.util.root_pattern("Cargo.toml", "rust-project.json"),
+		filetypes = { "rust" },
+	})
+
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
-	local eslint_d = require("efmls-configs.formatters.eslint_d")
 	local prettier_d = require("efmls-configs.formatters.prettier_d")
+	local eslint = {
+		lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+		lintStdin = true,
+		lintFormats = { "%f:%l:%c: %m" },
+		lintIgnoreExitCode = true,
+		formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+		formatStdin = true,
+	}
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -93,8 +118,8 @@ local config = function()
 			languages = {
 				lua = { luacheck, stylua },
 				python = { flake8, black },
-				typescript = { eslint_d, prettier_d },
-				typescriptreact = { eslint_d, prettier_d },
+				typescript = { eslint, prettier_d },
+				typescriptreact = { eslint, prettier_d },
 			},
 		},
 	})
@@ -111,5 +136,14 @@ return {
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-nvim-lsp",
+		"jose-elias-alvarez/nvim-lsp-ts-utils",
+    -- Format on save for rust
+		{
+			"rust-lang/rust.vim",
+			ft = "rust",
+			init = function()
+				vim.g.rustfmt_autosave = 1
+			end,
+		},
 	},
 }

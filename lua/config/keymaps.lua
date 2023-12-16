@@ -19,10 +19,10 @@ keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts) -- Navigate Left
 keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts) -- Navigate Down
 keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts) -- Navigate Up
 keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts) -- Navigate Right
-keymap.set("n", "<C-h>", "TmuxNavigateLeft",  opts) -- Navigate Left
-keymap.set("n", "<C-j>", "TmuxNavigateDown",  opts) -- Navigate Down
-keymap.set("n", "<C-k>", "TmuxNavigateUp",  opts) -- Navigate Up
-keymap.set("n", "<C-l>", "TmuxNavigateRight",  opts) -- Navigate Right
+keymap.set("n", "<C-h>", "TmuxNavigateLeft", opts) -- Navigate Left
+keymap.set("n", "<C-j>", "TmuxNavigateDown", opts) -- Navigate Down
+keymap.set("n", "<C-k>", "TmuxNavigateUp", opts) -- Navigate Up
+keymap.set("n", "<C-l>", "TmuxNavigateRight", opts) -- Navigate Right
 
 -- Window management
 keymap.set("n", "<leader>sv", ":vsplit<CR>", opts) -- Split vertically
