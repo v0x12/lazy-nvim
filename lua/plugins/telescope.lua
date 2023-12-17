@@ -2,6 +2,7 @@ local keymap = vim.keymap
 
 local config = function()
 	local telescope = require("telescope")
+	local conf = require("telescope.config").values
 
 	telescope.setup({
 		defaults = {
@@ -26,6 +27,13 @@ local config = function()
 			find_buffers = {
 				theme = "dropdown",
 				previewer = false,
+			},
+		},
+		-- Disabling regex in telescope live-grep so can dodge using this pattern on special characters "\{" or "\("
+		-- Can use from now on like "{" or "("
+		built_in = {
+			live_grep = {
+				vimgrep_arguments = table.insert(conf.vimgrep_arguments, "--fixed-strings"),
 			},
 		},
 	})
