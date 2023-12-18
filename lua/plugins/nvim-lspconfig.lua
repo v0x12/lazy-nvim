@@ -88,6 +88,7 @@ local config = function()
 	local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
 	local prettier_d = require("efmls-configs.formatters.prettier_d")
+	local eslint_d = require("efmls-configs.linters.eslint_d")
 	local eslint = {
 		lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
 		lintStdin = true,
@@ -118,8 +119,8 @@ local config = function()
 			languages = {
 				lua = { luacheck, stylua },
 				python = { flake8, black },
-				typescript = { eslint, prettier_d },
-				typescriptreact = { eslint, prettier_d },
+				typescript = { eslint, eslint_d, prettier_d },
+				typescriptreact = { eslint, eslint_d, prettier_d },
 			},
 		},
 	})
@@ -137,7 +138,7 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-nvim-lsp",
 		"jose-elias-alvarez/nvim-lsp-ts-utils",
-    -- Format on save for rust
+		-- Format on save for rust
 		{
 			"rust-lang/rust.vim",
 			ft = "rust",

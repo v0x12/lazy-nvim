@@ -9,8 +9,8 @@ local config = function()
 			component_separators = { left = "|", right = "|" },
 			section_separators = { left = "", right = "" },
 		},
-		sections = {
-			lualine_a = { "mode" },
+		sections= {
+			lualine_a = { "mode", "branch" },
 			lualine_b = { "buffers" },
 			lualine_x = { "encoding", "fileformat", "filetype" },
 			lualine_y = { "progress" },
