@@ -89,14 +89,14 @@ local config = function()
 	local black = require("efmls-configs.formatters.black")
 	local prettier_d = require("efmls-configs.formatters.prettier_d")
 	local eslint_d = require("efmls-configs.linters.eslint_d")
-	local eslint = {
-		lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
-		lintStdin = true,
-		lintFormats = { "%f:%l:%c: %m" },
-		lintIgnoreExitCode = true,
-		formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-		formatStdin = true,
-	}
+	-- local eslint = {
+	-- 	lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+	-- 	lintStdin = true,
+	-- 	lintFormats = { "%f:%l:%c: %m" },
+	-- 	lintIgnoreExitCode = true,
+	-- 	formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+	-- 	formatStdin = true,
+	-- }
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -119,8 +119,8 @@ local config = function()
 			languages = {
 				lua = { luacheck, stylua },
 				python = { flake8, black },
-				typescript = { eslint, eslint_d, prettier_d },
-				typescriptreact = { eslint, eslint_d, prettier_d },
+				typescript = { eslint_d, prettier_d },
+				typescriptreact = { eslint_d, prettier_d },
 			},
 		},
 	})
