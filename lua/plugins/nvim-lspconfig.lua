@@ -62,7 +62,7 @@ local config = function()
 			"typescriptreact",
 			"typescript.tsx",
 		},
-		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git", ".eslintrc.js"),
 	})
 
 	-- rust
@@ -96,7 +96,7 @@ local config = function()
 	-- 	lintIgnoreExitCode = true,
 	-- 	formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
 	-- 	formatStdin = true,
-	-- }
+ --  }
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -120,7 +120,7 @@ local config = function()
 				lua = { luacheck, stylua },
 				python = { flake8, black },
 				typescript = { eslint_d, prettier_d },
-				typescriptreact = { eslint_d, prettier_d },
+				typescriptreact = {  eslint_d, prettier_d },
 			},
 		},
 	})
