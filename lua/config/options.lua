@@ -40,3 +40,4 @@ opt.mouse:append('a')
 opt.clipboard:append("unnamedplus")
 opt.modifiable = true
 opt.encoding = "UTF-8"
+opt.colorcolumn = ""

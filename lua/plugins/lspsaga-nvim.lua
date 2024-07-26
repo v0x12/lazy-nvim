@@ -13,6 +13,10 @@ return {
 			definition_action_keys = {
 				edit = "<CR>",
 			},
+			finder = {
+				max_width = 0.9, -- Use 90% of the screen width
+				max_height = 0.9, -- Use 90% of the screen height, if supported by lspsaga
+			},
 		})
 	end,
 }
